@@ -9,32 +9,60 @@
         santatesaluda, feliznavidad, saludospersonalizados, saludame papa noel, santa claus me saluda, como hacer un saludo personalizado">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-            background-color: #f8f9fa;
-            text-align: center;
+            font-family: 'Arial', sans-serif;
             margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #e9ecef;
+            color: #343a40;
+        }
+        header {
+            background-color: #d9534f;
+            color: white;
+            width: 100%;
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 15px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            margin-bottom: 20px;
         }
         h1 {
-            color: #d9534f; /* Rojo navideño */
-            margin-bottom: 10px;
+            color: #d9534f;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #6c757d;
+            font-size: 1.5em;
+            margin-top: 20px;
         }
         p {
-            color: #333;
-            margin: 5px 0;
+            margin: 10px 0;
+            line-height: 1.5;
         }
         input {
             padding: 10px;
             margin: 10px 0;
-            border: 1px solid #ccc;
+            border: 2px solid #ced4da;
             border-radius: 5px;
             width: 80%;
             max-width: 400px;
+            font-size: 1em;
         }
         button {
             padding: 10px 20px;
@@ -43,35 +71,57 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 1.2em;
             margin-top: 20px;
+            transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #c9302c; /* Color más oscuro al pasar el mouse */
+            background-color: #c9302c;
         }
-        img {
-            width: 300px;
+        .gallery img {
+            width: 100%;
             height: auto;
-            margin-top: 20px;
+            margin-top: 10px;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
-    <div>
-        <h1>¡Bienvenido a Santa te saluda!</h1>
-        <p>Estamos trabajando para ofrecerte los mejores saludos personalizados de Papá Noel.</p>
-        <p>¡Personaliza tu mensaje y sorprende a tus seres queridos con un saludo único!</p>
-        
+    <header>
+        <h1>Santa te saluda</h1>
+        <nav>
+            <a href="#how-it-works">¿Cómo funciona?</a>
+            <a href="#about-us">Sobre nosotros</a>
+            <a href="#contact">Contacto</a>
+        </nav>
+    </header>
+
+    <div class="container" id="how-it-works">
         <h2>¿Cómo funciona?</h2>
-        <p>Ingresa el nombre y la edad del destinatario:</p>
+        <p>Simplemente ingresa el nombre y la edad del destinatario, y Papá Noel le enviará un mensaje especial. Personaliza tu mensaje y sorprende a tus seres queridos con saludos únicos y memorables.</p>
         
         <input type="text" id="nombre" placeholder="Nombre del destinatario" required>
         <input type="number" id="edad" placeholder="Edad del destinatario" required>
         
         <button id="saludo-button">¡Envía un saludo!</button>
-        
-        <p>¡Vuelve pronto y descubre más sorpresas navideñas!</p>
-        <img src="ruta/a/tu-imagen.jpg" alt="Papá Noel saluda">
+    </div>
+
+    <div class="container" id="about-us">
+        <h2>Sobre nosotros</h2>
+        <p>En Santa te saluda, nos dedicamos a crear momentos mágicos para los niños y sus familias. Nuestro objetivo es hacer que cada saludo de Papá Noel sea especial y único.</p>
+        <div class="gallery">
+            <img src="ruta/a/tu-imagen1.jpg" alt="Imagen 1">
+            <img src="ruta/a/tu-imagen2.jpg" alt="Imagen 2">
+            <img src="ruta/a/tu-imagen3.jpg" alt="Imagen 3">
+        </div>
+    </div>
+
+    <div class="container" id="contact">
+        <h2>Contacto</h2>
+        <p>Si tienes preguntas o necesitas más información, no dudes en ponerte en contacto con nosotros.</p>
+        <input type="email" id="email" placeholder="Tu correo electrónico" required>
+        <textarea id="mensaje" placeholder="Tu mensaje" rows="4" required></textarea>
+        <button id="enviar-button">Enviar</button>
     </div>
 
     <script>
@@ -79,8 +129,17 @@
             const nombre = document.getElementById('nombre').value;
             const edad = document.getElementById('edad').value;
             if (nombre && edad) {
-                // Aquí puedes implementar la lógica para mostrar la animación de Papá Noel
                 alert(`¡Papá Noel está listo para enviar un saludo a ${nombre} de ${edad} años!`); // Reemplaza esto por la animación
+            } else {
+                alert('Por favor, completa todos los campos.');
+            }
+        });
+
+        document.getElementById('enviar-button').addEventListener('click', function() {
+            const email = document.getElementById('email').value;
+            const mensaje = document.getElementById('mensaje').value;
+            if (email && mensaje) {
+                alert(`Gracias por tu mensaje, ${email}! Nos pondremos en contacto contigo pronto.`); // Lógica para enviar mensaje
             } else {
                 alert('Por favor, completa todos los campos.');
             }
