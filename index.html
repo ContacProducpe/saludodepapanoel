@@ -12,17 +12,13 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #e9ecef;
+            background-color: #f4f4f4;
             color: #343a40;
         }
         header {
             background-color: #d9534f;
             color: white;
-            width: 100%;
-            padding: 15px 0;
+            padding: 20px;
             text-align: center;
         }
         nav {
@@ -32,14 +28,18 @@
             color: white;
             margin: 0 15px;
             text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
         }
         .container {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 90%;
             max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
         h1 {
@@ -48,20 +48,18 @@
         }
         h2 {
             color: #6c757d;
-            font-size: 1.5em;
+            font-size: 1.8em;
             margin-top: 20px;
         }
         p {
-            margin: 10px 0;
-            line-height: 1.5;
+            line-height: 1.6;
         }
-        input {
+        input, textarea {
+            width: 100%;
             padding: 10px;
             margin: 10px 0;
-            border: 2px solid #ced4da;
+            border: 1px solid #ced4da;
             border-radius: 5px;
-            width: 80%;
-            max-width: 400px;
             font-size: 1em;
         }
         button {
@@ -72,21 +70,30 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 1.2em;
-            margin-top: 20px;
             transition: background-color 0.3s;
         }
         button:hover {
             background-color: #c9302c;
         }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #d9534f;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
         .gallery img {
             width: 100%;
             height: auto;
             margin-top: 10px;
-            border-radius: 10px;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
+
     <header>
         <h1>Santa te saluda</h1>
         <nav>
@@ -98,7 +105,7 @@
 
     <div class="container" id="how-it-works">
         <h2>¿Cómo funciona?</h2>
-        <p>Simplemente ingresa el nombre y la edad del destinatario, y Papá Noel le enviará un mensaje especial. Personaliza tu mensaje y sorprende a tus seres queridos con saludos únicos y memorables.</p>
+        <p>Simplemente ingresa el nombre y la edad del destinatario, y Papá Noel le enviará un mensaje especial. ¡Personaliza tu saludo y sorprende a tus seres queridos!</p>
         
         <input type="text" id="nombre" placeholder="Nombre del destinatario" required>
         <input type="number" id="edad" placeholder="Edad del destinatario" required>
@@ -108,7 +115,8 @@
 
     <div class="container" id="about-us">
         <h2>Sobre nosotros</h2>
-        <p>En Santa te saluda, nos dedicamos a crear momentos mágicos para los niños y sus familias. Nuestro objetivo es hacer que cada saludo de Papá Noel sea especial y único.</p>
+        <p>En Santa te saluda, nuestra misión es crear momentos mágicos para los niños y sus familias. Nuestro objetivo es hacer que cada saludo de Papá Noel sea único y memorable.</p>
+        
         <div class="gallery">
             <img src="ruta/a/tu-imagen1.jpg" alt="Imagen 1">
             <img src="ruta/a/tu-imagen2.jpg" alt="Imagen 2">
@@ -123,6 +131,10 @@
         <textarea id="mensaje" placeholder="Tu mensaje" rows="4" required></textarea>
         <button id="enviar-button">Enviar</button>
     </div>
+
+    <footer>
+        <p>&copy; 2024 Santa te saluda. Todos los derechos reservados.</p>
+    </footer>
 
     <script>
         document.getElementById('saludo-button').addEventListener('click', function() {
