@@ -18,6 +18,7 @@
             background-color: #f8f9fa;
             text-align: center;
             margin: 0;
+            padding: 20px;
         }
         h1 {
             color: #d9534f; /* Rojo navideño */
@@ -26,6 +27,14 @@
         p {
             color: #333;
             margin: 5px 0;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 400px;
         }
         button {
             padding: 10px 20px;
@@ -49,21 +58,32 @@
 </head>
 <body>
     <div>
-        <h1>¡Bienssvenido a Santa te saluda!</h1>
+        <h1>¡Bienvenido a Santa te saluda!</h1>
         <p>Estamos trabajando para ofrecerte los mejores saludos personalizados de Papá Noel.</p>
         <p>¡Personaliza tu mensaje y sorprende a tus seres queridos con un saludo único!</p>
+        
         <h2>¿Cómo funciona?</h2>
-        <p>Simplemente ingresa el nombre y la edad del destinatario, y Papá Noel le enviará un mensaje especial.</p>
+        <p>Ingresa el nombre y la edad del destinatario:</p>
+        
+        <input type="text" id="nombre" placeholder="Nombre del destinatario" required>
+        <input type="number" id="edad" placeholder="Edad del destinatario" required>
+        
+        <button id="saludo-button">¡Envía un saludo!</button>
+        
         <p>¡Vuelve pronto y descubre más sorpresas navideñas!</p>
         <img src="ruta/a/tu-imagen.jpg" alt="Papá Noel saluda">
-        <button id="saludo-button">¡Envía un saludo!</button>
     </div>
 
     <script>
         document.getElementById('saludo-button').addEventListener('click', function() {
-            // Aquí puedes colocar la lógica para mostrar la animación de Papá Noel
-            alert('¡Papá Noel está listo para enviar un saludo!'); // Reemplaza esto por la animación
-            // Puedes usar un modal, redirigir a otra página o mostrar la animación directamente en esta página.
+            const nombre = document.getElementById('nombre').value;
+            const edad = document.getElementById('edad').value;
+            if (nombre && edad) {
+                // Aquí puedes implementar la lógica para mostrar la animación de Papá Noel
+                alert(`¡Papá Noel está listo para enviar un saludo a ${nombre} de ${edad} años!`); // Reemplaza esto por la animación
+            } else {
+                alert('Por favor, completa todos los campos.');
+            }
         });
     </script>
 </body>
